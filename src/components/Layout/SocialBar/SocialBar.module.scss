@@ -1,0 +1,36 @@
+@import "~/src/scss/index.scss";
+
+.socialBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  z-index: 5;
+  background: white;
+}
+
+.left {
+  width: 25%;
+  color: $primary;
+  font-size: 17px;
+}
+
+.center {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+
+  > span {
+    color: $primary;
+  }
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+
+  > span {
+    color: $primary;
+  }
+}
