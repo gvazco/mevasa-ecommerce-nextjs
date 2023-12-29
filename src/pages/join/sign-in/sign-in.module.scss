@@ -1,11 +1,21 @@
+@import "~/src/scss/index.scss";
+
 .signIn {
   width: 70%;
 
   > h3 {
+    color: $text-secondary;
     margin-bottom: 20px;
   }
 
   .actions {
     margin-top: 10px;
+
+    > a {
+      color: $text-secondary;
+      &:hover {
+        color: $primary-hover;
+      }
+    }
   }
 }

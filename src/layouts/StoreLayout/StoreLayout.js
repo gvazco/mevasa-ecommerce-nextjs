@@ -22,7 +22,7 @@ export function StoreLayout(props) {
 
   return (
     <>
-      <html lang="en" className={poppins.className}>
+      <html lang="es" className={poppins.className}>
         <TopBar />
         <Container fluid>
           <div className={classNames({ [styles.relative]: relative })}>

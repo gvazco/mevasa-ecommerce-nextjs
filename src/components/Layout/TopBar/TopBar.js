@@ -2,6 +2,7 @@ import React from "react";
 import { Image } from "semantic-ui-react";
 import Link from "next/link";
 import { SocialBar } from "../SocialBar";
+import { Account } from "../Account";
 import styles from "./TopBar.module.scss";
 
 export function TopBar(props) {
@@ -19,7 +20,7 @@ export function TopBar(props) {
           <span>MENU</span>
         </div>
         <div className={styles.right}>
-          <span>ACCOUNT</span>
+          <Account />
         </div>
       </div>
     </>

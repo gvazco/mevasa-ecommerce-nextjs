@@ -10,8 +10,6 @@ export default function App(props) {
   return (
     <AuthProvider>
       <Component {...pageProps} />
-      {/* <CartProvider>
-      </CartProvider> */}
     </AuthProvider>
   );
 }

@@ -1,17 +1,16 @@
-$base: #ffffff;
-$contrast: #000000;
+$base: #0f172a;
+$base-dark: #020617;
+$base-hover: #1e293b;
 
-$primary: #0f172a;
-$primary-hover: #1e293b;
+$contrast: #cbd5e1;
+$contrast-dark: #64748b;
+$contrast-hover: #f1f5f9;
 
-$secondary: #64748b;
-$tertiary: #cbd5e1;
+$primary: #0d9488;
+$primary-hover: #14b8a6;
 
-$green-tym: #0d9488;
-$green-tym-hover: #14b8a6;
-
-$amber-yellow: #d97706;
-$amber-yellow-hover: #f59e0b;
+$secondary: #d97706;
+$secondary-hover: #f59e0b;
 
 $text-primary: #0f172a;
 $text-secondary: #cbd5e1;
@@ -25,5 +24,5 @@ $background-tertiary: #101010;
 $background-quaternary: #3d3d3d;
 $background-quaternary__blur: #3d3d3d10;
 
-$success: #69af00;
+$success: #0d9488;
 $danger: #ff0a4e;

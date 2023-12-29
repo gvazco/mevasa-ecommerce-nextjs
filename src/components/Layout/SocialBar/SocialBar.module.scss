@@ -6,31 +6,39 @@
   width: 100%;
   padding: 20px;
   z-index: 5;
-  background: white;
+  background: $contrast;
 }
 
 .left {
-  width: 25%;
-  color: $primary;
+  width: 40%;
+  color: $text-primary;
   font-size: 17px;
 }
 
 .center {
-  width: 25%;
+  width: 15%;
   display: flex;
   justify-content: center;
 
   > span {
-    color: $primary;
+    color: $text-primary;
+    font-size: 17px;
   }
 }
 
 .right {
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: flex-end;
 
-  > span {
-    color: $primary;
+  > a {
+    margin: 0 0.6rem;
+    color: $text-primary;
+
+    > i {
+      &:hover {
+        color: $contrast-dark;
+      }
+    }
   }
 }
