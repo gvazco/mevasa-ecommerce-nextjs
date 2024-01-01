@@ -1,29 +1,67 @@
 @import "~/src/scss/index.scss";
 
 .topBar {
-  position: fixed;
   display: flex;
   align-items: center;
   width: 100%;
   padding: 20px;
   z-index: 5;
   background: linear-gradient(to top, $base, $base-hover);
+
+  // Media Query para pantallas pequeñas
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+
+    .left,
+    .center,
+    .right {
+      width: 100%;
+      margin-bottom: 10px; // Ajusta según tus necesidades
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    position: unset;
+  }
 }
 
 .left {
-  width: 25%;
+  width: 15%;
 
   img {
     height: 40px;
   }
+
+  // Media Query para pantallas pequeñas
+  @media screen and (max-width: 991px) {
+    width: 100%;
+
+    img {
+      display: inline !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    img {
+      height: 30px;
+    }
+  }
 }
 
 .center {
-  width: 60%;
+  width: 65%;
   display: flex;
   justify-content: center;
+
   > span {
     color: $text-secondary;
+  }
+
+  // Media Query para pantallas pequeñas
+  @media screen and (max-width: 991px) {
+    width: 100%;
   }
 }
 
@@ -31,4 +69,10 @@
   width: 20%;
   display: flex;
   justify-content: flex-end;
+
+  // Media Query para pantallas pequeñas
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    justify-content: center; // Centra el contenido en pantallas pequeñas
+  }
 }

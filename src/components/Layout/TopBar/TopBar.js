@@ -3,6 +3,7 @@ import { Image } from "semantic-ui-react";
 import Link from "next/link";
 import { SocialBar } from "../SocialBar";
 import { Account } from "../Account";
+import { Menu } from "../Menu";
 import styles from "./TopBar.module.scss";
 
 export function TopBar(props) {
@@ -17,7 +18,7 @@ export function TopBar(props) {
           </Link>
         </div>
         <div className={styles.center}>
-          <span>MENU</span>
+          <Menu isOpenSearch={isOpenSearch} />
         </div>
         <div className={styles.right}>
           <Account />

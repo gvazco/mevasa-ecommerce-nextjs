@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
 import classNames from "classnames";
-import { TopBar } from "@/components/Layout";
+import { Footer, TopBar } from "@/components/Layout";
 import { Poppins } from "next/font/google";
 import styles from "./StoreLayout.module.scss";
 
@@ -29,7 +29,7 @@ export function StoreLayout(props) {
             {isContainer ? <Container>{children}</Container> : children}
           </div>
         </Container>
-        {/* TODO: Footer */}
+        <Footer />
       </html>
     </>
   );
