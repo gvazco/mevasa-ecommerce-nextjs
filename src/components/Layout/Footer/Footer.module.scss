@@ -59,12 +59,16 @@
         background-color: transparent;
 
         &:hover {
-          background-color: $contrast-dark;
+          background-color: transparent;
         }
 
         > i {
-          color: $contrast;
-          font-size: 20px;
+          color: $text-secondary;
+          font-size: 22px;
+
+          &:hover {
+            color: $contrast;
+          }
         }
       }
 

@@ -35,7 +35,7 @@ export function Account() {
         </Button>
       ) : (
         <Button icon className={styles.user}>
-          <Icon name="user outline" onClick={goToLogin} />
+          <Icon name="user outline" onClick={user ? goToAccount : goToLogin} />
         </Button>
       )}
     </div>

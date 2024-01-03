@@ -1,7 +1,10 @@
+@import "~/src/scss/index.scss";
+
 .ui.form {
   label {
     position: relative;
     bottom: 8px;
+    color: $contrast;
   }
 
   .field {
@@ -32,9 +35,14 @@
 
   .ui.button[type="submit"] {
     background-color: $primary;
-    color: $text-primary;
+    color: $text-secondary;
     margin: 0;
     padding: 15.5px 30px;
     border-radius: 6px;
+
+    &:hover {
+      background-color: $primary-hover;
+      color: $contrast;
+    }
   }
 }

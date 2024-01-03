@@ -1,6 +1,7 @@
+@import "~/src/scss/index.scss";
 .ui.button.primary {
   background-color: $primary;
-  color: $text-primary;
+  color: $contrast;
   margin: 0;
   padding: 15.5px 30px;
   border-radius: 6px;
