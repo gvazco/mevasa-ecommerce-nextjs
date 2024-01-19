@@ -1,9 +1,9 @@
 import { ChangeNameForm } from "./ChangeNameForm";
-// import { ChangeEmailForm } from "./ChangeEmailForm";
-// import { ChangePasswordForm } from "./ChangePasswordForm";
+import { ChangeEmailForm } from "./ChangeEmailForm";
+import { ChangePasswordForm } from "./ChangePasswordForm";
 
 export const Settings = {
   ChangeNameForm,
-  //   ChangeEmailForm,
-  //   ChangePasswordForm,
+  ChangeEmailForm,
+  ChangePasswordForm,
 };

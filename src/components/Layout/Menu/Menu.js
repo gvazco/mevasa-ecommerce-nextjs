@@ -4,16 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { map } from "lodash";
 import classNames from "classnames";
-import { Platform, CatProducts, MainMenu } from "@/api";
+import { MainMenu } from "@/api";
 import styles from "./Menu.module.scss";
 
-const platformCtrl = new Platform();
-const catProductsCtrl = new CatProducts();
 const mainMenuCtrl = new MainMenu();
 
 export function Menu(props) {
   const { isOpenSearch } = props;
-  const [platforms, setPlatforms] = useState(null);
   const [menus, setMenus] = useState(null);
   const [showSearch, setShowSearch] = useState(isOpenSearch);
   const [searchText, setSearchText] = useState("");
@@ -24,8 +21,6 @@ export function Menu(props) {
   useEffect(() => {
     (async () => {
       try {
-        const response = await platformCtrl.getAll();
-        setPlatforms(response.data);
         const responseMenu = await mainMenuCtrl.getAll();
         setMenus(responseMenu.data);
       } catch (error) {

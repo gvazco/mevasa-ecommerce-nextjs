@@ -6,22 +6,46 @@
 
 .content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   color: $text-secondary;
+
+  @media screen and (max-width: 968px) {
+    flex-wrap: wrap;
+  }
 
   > div {
     &:nth-child(1),
     &:nth-child(2) {
       width: 50%;
       margin: 0 !important;
+
+      @media screen and (max-width: 991px) {
+        width: 40%;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 100%;
+        margin-bottom: 0.5rem !important;
+      }
     }
 
     &:nth-child(2) {
       margin-left: 15px !important;
+
+      @media screen and (max-width: 767px) {
+        margin-left: 0 !important;
+      }
     }
 
     &:last-of-type {
       margin-left: 15px !important;
+      margin-bottom: 1rem !important;
+
+      @media screen and (max-width: 767px) {
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+      }
     }
   }
 }

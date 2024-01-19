@@ -1,6 +1,6 @@
 import { ENV } from "@/utils";
 
-export class CatProducts {
+export class CatProduct {
   async getAll() {
     try {
       const sort = "sort=order:asc";
