@@ -44,17 +44,44 @@ export function AddressForm(props) {
       <Form.Group widths="equal">
         <Form.Input
           name="name"
-          placeholder="Nombre y apellidos"
+          placeholder="Recibe (Nombre y apellidos)"
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.errors.name}
         />
+      </Form.Group>
+
+      <Form.Group widths="equal">
         <Form.Input
           name="address"
-          placeholder="Dirección"
+          placeholder="Dirección (Av., calle, vereda, andador, etc.)"
           value={formik.values.address}
           onChange={formik.handleChange}
           error={formik.errors.address}
+        />
+        <Form.Input
+          name="colony"
+          placeholder="Colonia"
+          value={formik.values.colony}
+          onChange={formik.handleChange}
+          error={formik.errors.colony}
+        />
+      </Form.Group>
+
+      <Form.Group widths="equal">
+        <Form.Input
+          name="exterior"
+          placeholder="Numero Exterior"
+          value={formik.values.exterior}
+          onChange={formik.handleChange}
+          error={formik.errors.exterior}
+        />
+        <Form.Input
+          name="interior"
+          placeholder="Número Interior"
+          value={formik.values.interior}
+          onChange={formik.handleChange}
+          error={formik.errors.interior}
         />
       </Form.Group>
 

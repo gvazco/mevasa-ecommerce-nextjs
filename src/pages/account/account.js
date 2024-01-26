@@ -42,7 +42,8 @@ export default function account() {
       menuItem: "Direcciones",
       render: () => (
         <Tab.Pane attached={false}>
-          <Address.AddAddress />
+          <Address.AddAddress onReload={onReload} />
+          <Address.ListAddresses reload={reload} onReload={onReload} />
           <Separator height={80} />
         </Tab.Pane>
       ),

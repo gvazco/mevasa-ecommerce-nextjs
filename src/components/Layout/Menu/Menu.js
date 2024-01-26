@@ -41,7 +41,7 @@ export function Menu(props) {
   return (
     <div className={styles.platforms}>
       {map(menus, (menu) => (
-        <Link key={menu.id} href={`/${menu.attributes.slug}`}>
+        <Link key={menu.attributes.order} href={`/${menu.attributes.slug}`}>
           <Image src={menu.attributes?.icon?.data?.attributes?.url} />
           <span className={styles.title}>{menu.attributes.title}</span>
         </Link>
