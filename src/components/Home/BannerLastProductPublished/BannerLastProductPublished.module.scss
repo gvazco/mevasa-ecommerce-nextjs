@@ -16,7 +16,6 @@
 
   @media screen and (max-width: 991px) {
     height: 300px;
-    position: unset;
   }
 
   @media screen and (max-width: 768px) {
@@ -39,6 +38,10 @@
   height: 100%;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 991px) {
+    top: 0;
+  }
 
   .date {
     font-size: 12px;
