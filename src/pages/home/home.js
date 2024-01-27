@@ -1,11 +1,22 @@
-import React from "react";
+import { Container } from "semantic-ui-react";
 import { StoreLayout } from "@/layouts";
+import { Home } from "@/components/Home";
+import { Separator } from "@/components/Shared";
 
 export default function HomePage() {
   return (
-    <StoreLayout>
-      <h1>Estamos en la HOME</h1>
-      <br />
-    </StoreLayout>
+    <>
+      <StoreLayout>
+        <Home.BannerLastProductPublished />
+
+        <Separator height={30} />
+
+        <Container>
+          <Home.LatestProducts title="Ultimos lanzamientos" />
+        </Container>
+
+        <Separator height={100} />
+      </StoreLayout>
+    </>
   );
 }

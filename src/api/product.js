@@ -19,14 +19,14 @@ export class Product {
     }
   }
 
-  async getLatestPublished({ limit = 9, categoryId = null }) {
+  async getLatestPublished({ limit = 9, catProductId = null }) {
     try {
-      const filterCategory =
-        categoryId && `filters[catProduct][id][$eq]=${categoryId}`;
+      const filterCatProduct =
+        catProductId && `filters[platform][id][$eq]=${catProductId}`;
       const paginationLimit = `pagination[limit]=${limit}`;
       const sort = `sort[0]=publishedAt:desc`;
       const populate = `populate=*`;
-      const urlParams = `${sort}&${paginationLimit}&${filterCategory}&${populate}`;
+      const urlParams = `${sort}&${paginationLimit}&${filterCatProduct}&${populate}`;
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${urlParams}`;
 
@@ -41,7 +41,7 @@ export class Product {
     }
   }
 
-  async getProductByCategorySlug(slug, page) {
+  async getProductByPlatformSlug(slug, page) {
     try {
       const filters = `filters[catProduct][slug][$eq]=${slug}`;
       const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;

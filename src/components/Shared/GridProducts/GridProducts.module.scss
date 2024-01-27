@@ -1,0 +1,78 @@
+@import "~/src/scss/index.scss";
+
+.gridProducts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin: -10px;
+}
+
+.label {
+  background: $base-dark;
+  margin: 0 0.75rem;
+  padding: 6px !important;
+
+  @media screen and (max-width: 991px) {
+    min-height: 80px;
+    max-height: 180px;
+    flex-flow: column;
+    margin: 0 0.35rem;
+
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: balance;
+    }
+  }
+}
+
+.product {
+  width: 33.33%;
+  margin-bottom: 10px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  > div {
+    position: relative;
+    padding: 10px 10px 0 10px;
+
+    @media screen and (max-width: 991px) {
+      padding: 10px 5px 0 5px;
+    }
+
+    &:last-of-type {
+      padding-top: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    > img {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .title {
+      color: $text-secondary;
+      margin-right: 5px;
+    }
+
+    .discount {
+      position: absolute;
+      left: 10px;
+      bottom: 5px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: $primary-hover;
+      text-align: end;
+
+      .coin {
+        font-size: smaller;
+        color: $primary;
+      }
+    }
+  }
+}
