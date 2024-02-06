@@ -16,7 +16,6 @@ export function LatestProducts(props) {
           limit,
           catProductId,
         });
-        console.log(response.data);
         setProducts(response.data);
       } catch (error) {
         console.error(error);

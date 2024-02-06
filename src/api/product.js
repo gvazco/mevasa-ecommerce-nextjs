@@ -1,6 +1,24 @@
 import { ENV } from "@/utils";
 
 export class Product {
+  async getAll() {
+    try {
+      const sort = "sort=order:asc";
+      const populate = "populate=*";
+
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${populate}&${sort}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getLastPublished() {
     try {
       const sort = "sort=publishedAt:desc";
@@ -22,7 +40,7 @@ export class Product {
   async getLatestPublished({ limit = 9, catProductId = null }) {
     try {
       const filterCatProduct =
-        catProductId && `filters[platform][id][$eq]=${catProductId}`;
+        catProductId && `filters[category_product][id][$eq]=${catProductId}`;
       const paginationLimit = `pagination[limit]=${limit}`;
       const sort = `sort[0]=publishedAt:desc`;
       const populate = `populate=*`;
@@ -41,9 +59,9 @@ export class Product {
     }
   }
 
-  async getProductByPlatformSlug(slug, page) {
+  async getProductByCategorySlug(slug, page) {
     try {
-      const filters = `filters[catProduct][slug][$eq]=${slug}`;
+      const filters = `filters[category_product][slug][$eq]=${slug}`;
       const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
@@ -84,7 +102,7 @@ export class Product {
   async getBySlug(slug) {
     try {
       const filters = `filters[slug][$eq]=${slug}`;
-      const populate = `populate[0]=wallpaper&populate[1]=cover&populate&populate[2]=screenshots&populate[3]=catProduct&populate[4]=catProduct.icon`;
+      const populate = `populate[0]=wallpaper&populate[1]=cover&populate&populate[2]=screenshots&populate[3]=category_product&populate[4]=category_product.icon`;
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${filters}&${populate}`;
 
       const response = await fetch(url);
@@ -100,7 +118,7 @@ export class Product {
 
   async getProductById(id) {
     try {
-      const populate = `populate[0]=cover&populate[1]=catProduct`;
+      const populate = `populate[0]=cover&populate[1]=category_product`;
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}/${id}?${populate}`;
       const response = await fetch(url);

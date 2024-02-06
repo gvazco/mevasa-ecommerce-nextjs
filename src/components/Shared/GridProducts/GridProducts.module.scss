@@ -9,6 +9,7 @@
 
 .label {
   background: $base-dark;
+  background: linear-gradient(to left, $base, $base-hover);
   margin: 0 0.75rem;
   padding: 6px !important;
 
@@ -29,6 +30,10 @@
 .product {
   width: 33.33%;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 576px) {
+    width: 50%;
+  }
 
   &:hover {
     opacity: 0.6;

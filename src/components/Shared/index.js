@@ -4,3 +4,7 @@ export * from "./Confirm";
 export * from "./Label";
 export * from "./GridGames";
 export * from "./GridProducts";
+export * from "./BarTrust";
+export * from "./BannerAd";
+export * from "./NoResult";
+export * from "./Pagination";
