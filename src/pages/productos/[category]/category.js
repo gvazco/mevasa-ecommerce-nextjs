@@ -1,7 +1,12 @@
 import { Container } from "semantic-ui-react";
 import { size } from "lodash";
 import { StoreLayout } from "@/layouts";
-import { GridProducts, NoResult, Separator } from "@/components/Shared";
+import {
+  GridProducts,
+  NoResult,
+  Separator,
+  Pagination,
+} from "@/components/Shared";
 import styles from "./category.module.scss";
 
 export default function CatProductsPage(props) {
@@ -19,6 +24,11 @@ export default function CatProductsPage(props) {
           {hasProducts ? (
             <>
               <GridProducts products={products} />
+              <Separator height={30} />
+              <Pagination
+                currentPage={pagination.page}
+                totalPages={pagination.pageCount}
+              />
             </>
           ) : (
             <NoResult

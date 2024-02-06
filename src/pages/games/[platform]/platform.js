@@ -1,7 +1,12 @@
 import { Container } from "semantic-ui-react";
 import { size } from "lodash";
 import { StoreLayout } from "@/layouts";
-import { GridProducts, NoResult, Separator } from "@/components/Shared";
+import {
+  GridGames,
+  Separator,
+  NoResult,
+  Pagination,
+} from "@/components/Shared";
 import styles from "./platform.module.scss";
 
 export default function PlatformPage(props) {
@@ -10,15 +15,20 @@ export default function PlatformPage(props) {
 
   return (
     <>
-      <StoreLayout>
+      <StoreLayout relative>
         <Container>
-          <Separator heigth={50} />
+          <Separator height={50} />
 
-          <h2 className={styles.title}>{platform.attributes.title} </h2>
+          <h2 className={styles.title}>{platform.attributes.title}</h2>
 
           {hasProducts ? (
             <>
-              <GridProducts products={games} />
+              <GridGames games={games} />
+              <Separator height={30} />
+              <Pagination
+                currentPage={pagination.page}
+                totalPages={pagination.pageCount}
+              />
             </>
           ) : (
             <NoResult
@@ -26,7 +36,7 @@ export default function PlatformPage(props) {
             />
           )}
 
-          <Separator heigth={100} />
+          <Separator height={100} />
         </Container>
       </StoreLayout>
     </>
