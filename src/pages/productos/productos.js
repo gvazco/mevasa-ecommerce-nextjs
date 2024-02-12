@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Image } from "semantic-ui-react";
+import { Image, Container } from "semantic-ui-react";
 import { map } from "lodash";
 import { CatProduct } from "@/api";
+import styles from "./productos.module.scss";
+import { StoreLayout } from "@/layouts";
 
 const catProductCtrl = new CatProduct();
 
@@ -21,15 +23,34 @@ export default function Productos() {
   }, []);
 
   return (
-    <div>
-      <h3>Productos</h3>
+    <>
+      <StoreLayout>
+        <Container>
+          <h2 className={styles.title}>Productos</h2>
 
-      {map(categories, (category) => (
-        <Link key={category.id} href={`/productos/${category.attributes.slug}`}>
-          <Image src={category?.attributes?.icon?.data?.attributes?.url} />
-          {category.attributes.title}
-        </Link>
-      ))}
-    </div>
+          {console.log(categories)}
+
+          <div className={styles.grid_categories}>
+            {map(categories, (category) => (
+              <Link
+                className={styles.item}
+                key={category.id}
+                href={`/productos/${category.attributes.slug}`}
+              >
+                <Image
+                  src={category?.attributes?.cover?.data?.attributes?.url}
+                />
+
+                <div className={styles.label}>
+                  <span className={styles.title}>
+                    {category.attributes.title}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </StoreLayout>
+    </>
   );
 }

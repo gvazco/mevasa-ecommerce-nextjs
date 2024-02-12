@@ -82,7 +82,7 @@ export class Product {
   async searchProducts(text, page) {
     try {
       const filters = `filters[title][$contains]=${text}`;
-      const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=3`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
 

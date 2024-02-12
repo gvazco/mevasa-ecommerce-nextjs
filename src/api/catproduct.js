@@ -4,7 +4,7 @@ export class CatProduct {
   async getAll() {
     try {
       const sort = "sort=order:asc";
-      const populate = "populate=icon";
+      const populate = "populate=*";
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.CATEGORY_PRODUCT}?${populate}&${sort}`;
 

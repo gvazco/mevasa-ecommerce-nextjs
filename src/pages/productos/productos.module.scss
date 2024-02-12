@@ -1,0 +1,63 @@
+@import "~/src/scss/index.scss";
+
+$columnas-desktop: 3;
+$columnas-medianas: 2;
+$columnas-moviles: 1;
+
+$breakpoint-desktop: 1024px;
+$breakpoint-medianos: 768px;
+
+.title {
+  color: $text-secondary;
+  margin: 2rem 0;
+}
+
+.link_title {
+  color: $text-secondary;
+}
+
+.grid_categories {
+  display: grid;
+  grid-template-columns: repeat(
+    $columnas-moviles,
+    1fr
+  ); // Una columna en dispositivos móviles
+  gap: 20px; // Espacio entre las celdas
+
+  @media (min-width: $breakpoint-medianos) {
+    grid-template-columns: repeat(
+      $columnas-medianas,
+      1fr
+    ); // Dos columnas en dispositivos medianos
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(
+      $columnas-desktop,
+      1fr
+    ); // Tres columnas en desktop
+  }
+
+  a {
+    > img {
+      width: 100%;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .label {
+      background: $base-dark;
+      background: linear-gradient(to right, $primary, $primary-hover);
+      border-radius: 0 0 16px 16px;
+      display: flex;
+      justify-content: center;
+
+      .title {
+        color: $text-secondary;
+        font-weight: 500;
+        font-size: small;
+        margin: 1rem 0;
+      }
+    }
+  }
+  // Añadir estilos adicionales si es necesario
+}

@@ -1,10 +1,33 @@
 @import "~/src/scss/index.scss";
 
+$columnas-desktop: 3;
+$columnas-medianas: 2;
+$columnas-moviles: 1;
+
+$breakpoint-desktop: 1024px;
+$breakpoint-medianos: 768px;
+
 .gridProducts {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  margin: -10px;
+  display: grid;
+  grid-template-columns: repeat(
+    $columnas-moviles,
+    1fr
+  ); // Una columna en dispositivos móviles
+  gap: 20px; // Espacio entre las celdas
+
+  @media (min-width: $breakpoint-medianos) {
+    grid-template-columns: repeat(
+      $columnas-medianas,
+      1fr
+    ); // Dos columnas en dispositivos medianos
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(
+      $columnas-desktop,
+      1fr
+    ); // Tres columnas en desktop
+  }
 }
 
 .label {
@@ -28,12 +51,7 @@
 }
 
 .product {
-  width: 33.33%;
   margin-bottom: 10px;
-
-  @media screen and (max-width: 576px) {
-    width: 50%;
-  }
 
   &:hover {
     opacity: 0.6;

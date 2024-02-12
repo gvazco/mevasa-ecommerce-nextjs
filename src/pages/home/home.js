@@ -1,7 +1,7 @@
 import { Container } from "semantic-ui-react";
 import { StoreLayout } from "@/layouts";
 import { Home } from "@/components/Home";
-import { Separator, BarTrust, BannerAd } from "@/components/Shared";
+import { Separator, BarTrust, BannerAd, Seo } from "@/components/Shared";
 
 const catProductsId = {
   soldadoras: 10,
@@ -11,6 +11,8 @@ const catProductsId = {
 export default function HomePage() {
   return (
     <>
+      <Seo />
+
       <StoreLayout>
         <Home.BannerLastProductPublished />
 
