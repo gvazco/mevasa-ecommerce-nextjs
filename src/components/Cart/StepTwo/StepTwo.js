@@ -11,7 +11,7 @@ import styles from "./StepTwo.module.scss";
 const stripeInit = loadStripe(ENV.STRIPE_TOKEN);
 
 export function StepTwo(props) {
-  const { games } = props;
+  const { products } = props;
   const [addressSelected, setAddressSelected] = useState(null);
 
   return (
@@ -27,7 +27,7 @@ export function StepTwo(props) {
         </div>
 
         <div className={styles.right}>
-          <Resume games={games} addressSelected={addressSelected} />
+          <Resume products={products} addressSelected={addressSelected} />
         </div>
       </div>
     </Elements>

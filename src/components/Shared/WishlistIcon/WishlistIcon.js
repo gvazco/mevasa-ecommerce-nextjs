@@ -8,24 +8,25 @@ import styles from "./WishlistIcon.module.scss";
 const wishlistCtrl = new Wishlist();
 
 export function WishlistIcon(props) {
-  const { gameId, className, removeCallback } = props;
+  const { productId, className, removeCallback } = props;
   const [hasWishlist, setHasWishlist] = useState(null);
   const { user } = useAuth();
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await wishlistCtrl.check(user.id, gameId);
+        console.log(user);
+        const response = await wishlistCtrl.check(user.id, productId);
         setHasWishlist(response);
       } catch (error) {
         setHasWishlist(false);
         console.error(error);
       }
     })();
-  }, [gameId]);
+  }, [productId]);
 
   const addWishlist = async () => {
-    const response = await wishlistCtrl.add(user.id, gameId);
+    const response = await wishlistCtrl.add(user.id, productId);
     setHasWishlist(response);
   };
 

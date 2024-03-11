@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { Game } from "@/api";
+import { Product } from "@/api";
 import { CartLayout } from "@/layouts";
 import { useCart } from "@/hooks";
 import { Cart } from "@/components/Cart";
 import { Seo } from "@/components/Shared";
 
-const gameCtrl = new Game();
+const productCtrl = new Product();
 
 export default function CartPage() {
   const {
     query: { step = 1 },
   } = useRouter();
   const currentStep = Number(step);
-  const [games, setGames] = useState(null);
+  const [products, setProducts] = useState(null);
   const { cart } = useCart();
 
   useEffect(() => {
@@ -21,10 +21,12 @@ export default function CartPage() {
       try {
         const data = [];
         for await (const item of cart) {
-          const response = await gameCtrl.getGameById(item.id);
+          console.log(item);
+          const response = await productCtrl.getProductById(item.id);
+          console.log(response);
           data.push({ ...response.data, quantity: item.quantity });
         }
-        setGames(data);
+        setProducts(data);
       } catch (error) {
         console.error(error);
       }
@@ -36,8 +38,8 @@ export default function CartPage() {
       <Seo title="Carrito" />
 
       <CartLayout>
-        {currentStep === 1 && <Cart.StepOne games={games} />}
-        {currentStep === 2 && <Cart.StepTwo games={games} />}
+        {currentStep === 1 && <Cart.StepOne products={products} />}
+        {currentStep === 2 && <Cart.StepTwo products={products} />}
         {currentStep === 3 && <Cart.StepThree />}
       </CartLayout>
     </>

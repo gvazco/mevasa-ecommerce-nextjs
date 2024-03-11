@@ -7,7 +7,7 @@ import { fn } from "@/utils";
 import styles from "./Resume.module.scss";
 
 export function Resume(props) {
-  const { games } = props;
+  const { products } = props;
   const router = useRouter();
   const [totals, setTotals] = useState(null);
 
@@ -18,22 +18,23 @@ export function Resume(props) {
       price: 0,
     };
 
-    forEach(games, (game) => {
+    forEach(products, (product) => {
       const price = fn.calcDiscountedPrice(
-        game.attributes.price,
-        game.attributes.discount
+        product.attributes.price,
+        product.attributes.discount
       );
 
       totals = {
-        original: totals.original + game.attributes.price * game.quantity,
+        original: totals.original + product.attributes.price * product.quantity,
         discount:
-          totals.discount + (game.attributes.price - price) * game.quantity,
-        price: totals.price + price * game.quantity,
+          totals.discount +
+          (product.attributes.price - price) * product.quantity,
+        price: totals.price + price * product.quantity,
       };
     });
 
     setTotals(totals);
-  }, [games]);
+  }, [products]);
 
   const goToStepTwo = () => {
     router.replace({ query: { ...router.query, step: 2 } });

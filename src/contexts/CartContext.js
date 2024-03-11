@@ -15,18 +15,18 @@ export function CartProvider(props) {
     setCart(response);
   }, []);
 
-  const addCart = (gameId) => {
-    cartCtrl.add(gameId);
+  const addCart = (productId) => {
+    cartCtrl.add(productId);
     refreshTotalCart();
   };
 
-  const changeQuantityItem = (gameId, quantity) => {
-    cartCtrl.changeQuantity(gameId, quantity);
+  const changeQuantityItem = (productId, quantity) => {
+    cartCtrl.changeQuantity(productId, quantity);
     refreshTotalCart();
   };
 
-  const deleteItem = (gameId) => {
-    cartCtrl.delete(gameId);
+  const deleteItem = (productId) => {
+    cartCtrl.delete(productId);
     refreshTotalCart();
   };
 

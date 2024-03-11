@@ -5,7 +5,7 @@ import { useCart } from "@/hooks";
 import styles from "./Basket.module.scss";
 
 export function Basket(props) {
-  const { games } = props;
+  const { products } = props;
   const { changeQuantityItem, deleteItem } = useCart();
 
   const options = Array.from({ length: 50 }, (_, index) => {
@@ -18,20 +18,22 @@ export function Basket(props) {
       <h2>Cesta</h2>
 
       <div className={styles.block}>
-        {map(games, (game) => (
-          <div key={game.id} className={styles.product}>
-            <Image src={game.attributes.cover.data.attributes.url} />
+        {map(products, (product) => (
+          <div key={product.id} className={styles.product}>
+            <Image src={product.attributes.cover.data.attributes.url} />
             <div>
               <div className={styles.info}>
                 <div>
-                  <p>{game.attributes.title}</p>
-                  <p>{game.attributes.platform.data.attributes.title}</p>
+                  <p>{product.attributes.title}</p>
+                  <p>
+                    {product.attributes.category_product.data.attributes.title}
+                  </p>
                 </div>
 
                 <Icon
-                  name="trash alternate online"
+                  name="trash alternate outline"
                   link
-                  onClick={() => deleteItem(game.id)}
+                  onClick={() => deleteItem(product.id)}
                 />
               </div>
 
@@ -40,16 +42,16 @@ export function Basket(props) {
                   className="number"
                   options={options}
                   selection
-                  value={game.quantity}
+                  value={product.quantity}
                   compact
                   onChange={(_, data) =>
-                    changeQuantityItem(game.id, data.value)
+                    changeQuantityItem(product.id, data.value)
                   }
                 />
                 <span>
                   {fn.calcDiscountedPrice(
-                    game.attributes.price,
-                    game.attributes.discount
+                    product.attributes.price,
+                    product.attributes.discount
                   )}
                   €
                 </span>

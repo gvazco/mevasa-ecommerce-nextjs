@@ -11,7 +11,7 @@ import styles from "./Resume.module.scss";
 const cartCtrl = new Cart();
 
 export function Resume(props) {
-  const { games, addressSelected } = props;
+  const { products, addressSelected } = props;
   const [total, setTotal] = useState(null);
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
@@ -23,16 +23,16 @@ export function Resume(props) {
   useEffect(() => {
     let totalTemp = 0;
 
-    forEach(games, (game) => {
+    forEach(products, (product) => {
       const price = fn.calcDiscountedPrice(
-        game.attributes.price,
-        game.attributes.discount
+        product.attributes.price,
+        product.attributes.discount
       );
-      totalTemp += price * game.quantity;
+      totalTemp += price * product.quantity;
     });
 
     setTotal(totalTemp.toFixed(2));
-  }, [games]);
+  }, [products]);
 
   const onPay = async () => {
     setLoading(true);
@@ -50,7 +50,7 @@ export function Resume(props) {
     } else {
       const response = await cartCtrl.paymentCart(
         result.token,
-        games,
+        products,
         user.id,
         addressSelected
       );
@@ -80,17 +80,19 @@ export function Resume(props) {
 
       <div className={styles.block}>
         <div className={styles.products}>
-          {map(games, (game) => (
-            <div key={game.id} className={styles.product}>
+          {map(products, (product) => (
+            <div key={product.id} className={styles.product}>
               <div>
-                <p>{game.attributes.title}</p>
-                <span>{game.attributes.platform.data.attributes.title}</span>
+                <p>{product.attributes.title}</p>
+                <span>
+                  {product.attributes.category_product.data.attributes.title}
+                </span>
               </div>
               <span>
-                {game.quantity > 0 && `${game.quantity}x`}
+                {product.quantity > 0 && `${product.quantity}x`}
                 {fn.calcDiscountedPrice(
-                  game.attributes.price,
-                  game.attributes.discount
+                  product.attributes.price,
+                  product.attributes.discount
                 )}
                 €
               </span>

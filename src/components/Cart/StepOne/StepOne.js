@@ -3,15 +3,15 @@ import { Resume } from "./Resume";
 import styles from "./StepOne.module.scss";
 
 export function StepOne(props) {
-  const { games } = props;
+  const { products } = props;
 
   return (
     <div className={styles.stepOne}>
       <div className={styles.center}>
-        <Basket games={games} />
+        <Basket products={products} />
       </div>
       <div className={styles.right}>
-        <Resume games={games} />
+        <Resume products={products} />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@
   > h2 {
     margin-bottom: 15px;
     font-size: 18px;
+    color: $text-secondary;
   }
 }
 
@@ -48,15 +49,20 @@
       p {
         &:first-of-type {
           font-weight: bold;
+          color: $text-secondary;
         }
         &:last-of-type {
-          color: $text-secondary;
+          color: $secondary;
           font-size: 12px;
         }
       }
 
+      i {
+        color: $text-secondary;
+      }
+
       i:hover {
-        color: $primary;
+        color: $primary-hover;
       }
     }
 
@@ -67,6 +73,7 @@
       span {
         margin-left: 10px;
         font-weight: bold;
+        color: $primary-hover;
       }
     }
   }

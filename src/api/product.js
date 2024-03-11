@@ -102,7 +102,7 @@ export class Product {
   async getBySlug(slug) {
     try {
       const filters = `filters[slug][$eq]=${slug}`;
-      const populate = `populate[0]=wallpaper&populate[1]=cover&populate&populate[2]=screenshots&populate[3]=category_product&populate[4]=category_product.icon`;
+      const populate = `populate[0]=wallpaper&populate[1]=cover&populate&populate[2]=screenshots&populate[3]=category_product&populate[4]=category_product.icon&populate[5]=specs`;
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.PRODUCT}?${filters}&${populate}`;
 
       const response = await fetch(url);

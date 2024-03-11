@@ -1,11 +1,11 @@
 import { ENV, authFetch } from "@/utils";
 
 export class Wishlist {
-  async check(userId, gameId) {
+  async check(userId, productId) {
     try {
       const filterUser = `filters[user][id][$eq][0]=${userId}`;
-      const filterGame = `filters[game][id][$eq][1]=${gameId}`;
-      const urlParams = `${filterUser}&${filterGame}`;
+      const filterproduct = `filters[product][id][$eq][1]=${productId}`;
+      const urlParams = `${filterUser}&${filterproduct}`;
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.WISHLIST}?${urlParams}`;
 
@@ -24,7 +24,7 @@ export class Wishlist {
     }
   }
 
-  async add(userId, gameId) {
+  async add(userId, productId) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.WISHLIST}`;
       const params = {
@@ -32,10 +32,11 @@ export class Wishlist {
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify({
           data: {
             user: userId,
-            game: gameId,
+            product: productId,
           },
         }),
       };
@@ -72,7 +73,7 @@ export class Wishlist {
   async getAll(userId) {
     try {
       const filters = `filters[user][id][$eq]=${userId}`;
-      const populate = "populate[0]=game&populate[1]=game.cover";
+      const populate = "populate[0]=product&populate[1]=product.cover";
       const urlParams = `${filters}&${populate}`;
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.WISHLIST}?${urlParams}`;
