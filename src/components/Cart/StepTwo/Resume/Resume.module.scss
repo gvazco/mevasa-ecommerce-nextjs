@@ -3,6 +3,7 @@
 .resume > h2 {
   margin-bottom: 15px;
   font-size: 18px;
+  color: $contrast;
 }
 
 .block,
@@ -43,16 +44,17 @@
         font-weight: bold;
         margin-bottom: -5px;
         padding-right: 50px;
+        color: $text-secondary;
       }
 
       span {
         font-size: 10px;
-        color: $text-secondary;
+        color: $secondary;
       }
     }
 
     > span {
-      color: $text-secondary;
+      color: $contrast;
       font-size: 12px;
       white-space: nowrap;
     }
@@ -68,9 +70,11 @@
 
     > span {
       font-weight: bold;
+      color: $contrast;
 
       &:last-of-type {
         font-size: 18px;
+        color: $primary-hover;
       }
     }
   }

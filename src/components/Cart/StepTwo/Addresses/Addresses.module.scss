@@ -3,6 +3,7 @@
 .addresses > h2 {
   margin-bottom: 15px;
   font-size: 18px;
+  color: $contrast;
 }
 
 .address {
@@ -21,6 +22,12 @@
 
   &.active {
     border-color: $primary;
+  }
+
+  > p:first-of-type {
+    color: $contrast;
+    font-weight: 600;
+    font-size: 15px;
   }
 
   > p:last-of-type {

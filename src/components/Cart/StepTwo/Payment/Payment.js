@@ -8,7 +8,7 @@ export function Payment() {
         color: "#fff",
         fontSize: "16px",
         "::placeholder": {
-          color: "#909090",
+          color: "#cbd5e1",
         },
       },
     },
